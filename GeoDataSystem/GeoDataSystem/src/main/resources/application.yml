@@ -1,0 +1,8 @@
+spring:
+    application:
+      name:GeoDataSystem
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://106.13.15.236:9091/eureka/
+

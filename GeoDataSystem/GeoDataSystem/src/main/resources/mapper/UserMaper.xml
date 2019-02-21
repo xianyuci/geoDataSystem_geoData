@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hz.GeoDataSystem.dao.UserMapper">
+    <resultMap id="base_result_map" type="com.hz.GeoDataSystem.model.User">
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="userid" property="userid"/>
+    </resultMap>
+
+    <sql id="base_sql">
+        userid,username,password
+    </sql>
+    <select id="listAll" resultMap="base_result_map">
+        SELECT
+        <include refid="base_sql"/>
+        FROM user
+    </select>
+
+    <insert id="insert" parameterType="com.hz.GeoDataSystem.model.User">
+        INSERT INTO user
+        (username, password, userid)
+        VALUES
+        (#{username},#{password},#{userid})
+    </insert>
+</mapper>
